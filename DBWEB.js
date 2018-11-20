@@ -12,17 +12,6 @@ db.Createcollection("Usuarios", {validator: { $and:
 });
 
 
-
-db.Usuarios.insertOne({
-    User_ID: 0,
-    Nombres: "Nombres",
-    Apellidos: "Apellidos",
-    FechaNacimiento: "dd/mm/yyyy",
-    User: "Username",
-    Pass: "Password",
-    TipoUsuario: 0,
-})
-
 db.Createcollection("Archivos");
 
 db.Createcollection("Documentos", {validator: { $and:
@@ -33,3 +22,7 @@ db.Createcollection("Documentos", {validator: { $and:
         ]
     }
 });
+
+db.Createcollection("Documentos");
+
+db.Createcollection("")
