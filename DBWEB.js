@@ -11,18 +11,24 @@ db.Createcollection("Usuarios", {validator: { $and:
     }
 });
 
-
-db.Createcollection("Archivos");
-
 db.Createcollection("Documentos", {validator: { $and:
         [
-            {User_ID: {$type: "Object ID"}},
+            {Documentos_ID: {$type: "Object ID"}},
+            {Album: {$type: "Integer", default: 0}},
             {Document: {$type: "String"}},
             {FechaCreacion: {$type: "Titestamp"}}
         ]
     }
 });
 
-db.Createcollection("Documentos");
 
-db.Createcollection("")
+function getNextSequenceValue(sequenceName){
+
+    var sequenceDocument = db.counters.findAndModify({
+       query:{_id: sequenceName },
+       update: {$inc:{sequence_value:1}},
+       new:true
+    });
+     
+    return sequenceDocument.sequence_value;
+ }
