@@ -25,4 +25,11 @@ db.Usuarios.insertOne({
 
 db.Createcollection("Archivos");
 
-db.Archivos
+db.Createcollection("Documentos", {validator: { $and:
+        [
+            {User_ID: {$type: "Object ID"}},
+            {Document: {$type: "String"}},
+            {FechaCreacion: {$type: "Titestamp"}}
+        ]
+    }
+});
