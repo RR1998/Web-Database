@@ -16,7 +16,8 @@ db.Createcollection("Documentos", {validator: { $and:
             {Documentos_ID: {$type: "Object ID"}},
             {Album: {$type: "Integer", default: 0}},
             {Document: {$type: "String"}},
-            {FechaCreacion: {$type: "Titestamp"}}
+            {FechaCreacion: {$type: "Timestamp"}},
+            {UltimaFecha: {$type: "Timestamp"}}
         ]
     }
 });
