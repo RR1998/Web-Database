@@ -23,6 +23,7 @@ db.Createcollection("Documentos", {validator: { $and:
     }
 });
 
+db.runCommand({})
 
 function getNextSequenceValue(sequenceName){
 
