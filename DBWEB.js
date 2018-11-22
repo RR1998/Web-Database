@@ -20,12 +20,29 @@ db.Createcollection("Documentos", {validator: { $and:
             {Album: {$type: "Integer", default: 0}},
             {Document: {$type: "String"}},
             {FechaCreacion: {$type: "Timestamp"}},
-            {UltimaFecha: {$type: "Timestamp"}}//ULTIMA FECHA DE APERTURA 
+            {UltimaFecha: {$type: "Timestamp"}},//ULTIMA FECHA DE APERTURA 
+            {Shared: {$type: "Boolean"}}//si es true es un archivo compartido
         ]
     }
 });
 
-db.createView('User_Documents')
+function UsuariosCompartidos(User_ID){//saber con que usuarios se ha compartido un archivo
+    var Usuari
+
+    function getNextSequenceValue(sequenceName){
+    
+        var sequenceDocument = db.counters.findAndModify({
+           query:{_id: sequenceName },
+           update: {$inc:{sequence_value:1}},
+           new:true
+        });
+         
+        return sequenceDocument.sequence_value;
+     }
+     =[];
+
+    
+}
 
 function getNextSequenceValue(sequenceName){
 
