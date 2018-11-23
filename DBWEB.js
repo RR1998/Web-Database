@@ -26,31 +26,3 @@ db.Createcollection("Documentos", {validator: { $and:
     }
 });
 
-function UsuariosCompartidos(User_ID){//saber con que usuarios se ha compartido un archivo
-    var Usuari
-
-    function getNextSequenceValue(sequenceName){
-    
-        var sequenceDocument = db.counters.findAndModify({
-           query:{_id: sequenceName },
-           update: {$inc:{sequence_value:1}},
-           new:true
-        });
-         
-        return sequenceDocument.sequence_value;
-     }
-     =[];
-
-    
-}
-
-function getNextSequenceValue(sequenceName){
-
-    var sequenceDocument = db.counters.findAndModify({
-       query:{_id: sequenceName },
-       update: {$inc:{sequence_value:1}},
-       new:true
-    });
-     
-    return sequenceDocument.sequence_value;
- }
