@@ -1,12 +1,16 @@
 function UsuariosCompartidos(User_ID){//saber con que usuarios se ha compartido un archivo
-    const Usuario = db.collection('Documentos');
+    const Documentos = db.collection('Documentos');
+    const Usuarios = db.collection('Usuarios');
     var User_Access = [];
-    for (var i = 0; i < Usuario.length; i++){
-        for(var j = 0; j < Usuario[i][1].length; j++){
-            
-        }
-    }
-    
+    var Users = [];
+    User_Access = Documentos.find({}, {Documentos_ID: 0,User_Access:1, 
+        User_Creator: 0, Album: 0, Document: 0, FechaCreacion: 0, UltimaFecha: 0, Shared: 0});
+    User_Access.forEach(element => {
+        Users.push(Usuarios.find({element}, 
+            {User_ID: 0, Nombres: 0, Apellidos: 0, FechaNacimiento: 0,
+                 User: 1, Pass: 0, Rol: 0, FechaCreacion: 0}));
+    });
+    return User_Access;
 }
 
 function getNextSequenceValue(sequenceName){
