@@ -8,9 +8,9 @@ function UsuariosCompartidos(User_ID){//saber con que usuarios se ha compartido 
     User_Access.forEach(element => {
         Users.push(Usuarios.find({element}, 
             {User_ID: 0, Nombres: 0, Apellidos: 0, FechaNacimiento: 0,
-                 User: 1, Pass: 0, Rol: 0, FechaCreacion: 0}));
+                User: 1, Pass: 0, Rol: 0, FechaCreacion: 0}));
     });
-    return User_Access;
+    return Users;
 }
 
 function getNextSequenceValue(sequenceName){
